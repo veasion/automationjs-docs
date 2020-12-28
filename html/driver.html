@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>WebDriverBinding | JS自动化测试 -1.0.0 文档</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/sh.css">
+  <link rel="canonical" href="https://nodejs.org/api/driver.html">
+</head>
+<body class="alt apidoc" id="api-section-driver">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="/" title="返回首页">
+          JS自动化测试
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-overview" href="overview.html">Overview - 综述</a></li>
+<li><a class="nav-qa" href="qa.html">Q&amp;A - 常见问题</a></li>
+<li><a class="nav-driver active" href="driver.html">Driver - 基础函数</a></li>
+<li><a class="nav-element" href="element.html">Element - 元素对象</a></li>
+<li><a class="nav-element_ext" href="element_ext.html">ElementExt - 元素函数</a></li>
+<li><a class="nav-env" href="env.html">Environment - 环境变量</a></li>
+<li><a class="nav-jdbc" href="jdbc.html">Jdbc - 数据库</a></li>
+<li><a class="nav-touch" href="touch.html">Touch - 鼠标操作</a></li>
+<li><a class="nav-log" href="log.html">Logger - 日志</a></li>
+<li><a class="nav-auto" href="auto.html">Auto - 模块及函数</a></li>
+<li><a class="nav-demo" href="demo.html">Demo - 示例</a></li>
+</ul>
+
+    </div>
+
+    <div id="column1" data-id="driver" class="interior">
+      <header>
+        <h1>JS自动化测试 -1.0.0 文档</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">索引</a> |
+            <a href="all.html">查看全部</a>
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>目录</h2>
+        <ul>
+<li><span class="stability_undefined"><a href="#driver_webdriverbinding">WebDriverBinding</a></span><ul>
+<li><span class="stability_undefined"><a href="#driver_open_url">open(url)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_pause_millis">pause(millis)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_sleep_millis">sleep(millis)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_executescript_jscode">executeScript(jsCode)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_executescriptbyparams_jscode_args">executeScriptByParams(jsCode, args)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_command_command">command(command)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_info">info</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_assertresult_flag_message">assertResult(flag, message)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_waitforpageloaded_seconds">waitForPageLoaded(seconds)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_iframe_target_fun">iframe(target, fun)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_formatdate_date_pattern">formatDate(date, pattern)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_randcode_length">randCode(length)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_println_message_args">println(message, args)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_calculate_str_n">calculate(str, n)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_writetext_path_context_append_charsetname">writeText(path, context, append, charsetName)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_readtext_pathorurl_charsetname">readText(pathOrUrl, charsetName)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_runnewjs_path">runNewJs(path)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_screenshot_path">screenshot(path)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_getwindowhandle">getWindowHandle()</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_opennewwindow">openNewWindow()</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_withnewwindow_fun">withNewWindow(fun)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_switchtonextwindow_windowhandle">switchToNextWindow(windowHandle)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_createjdbcconnection_jdbcurl_user_password">createJdbcConnection(jdbcUrl, user, password)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_createmysqlconnection_ip_port_database_user_password">createMysqlConnection(ip, port, database, user, password)</a></span></li>
+<li><span class="stability_undefined"><a href="#driver_request_url_method_content_headers">request(url, method, content, headers)</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>WebDriverBinding<span><a class="mark" href="#driver_webdriverbinding" id="driver_webdriverbinding">#</a></span></h1>
+<p>driver 模块提供一系列函数，继承 SearchContextBinding 类，用于元素查找，数据库操作等。</p>
+<p>该 api 函数可以直接方法访问，如 <code>click(target)</code> 方式调用，等价于 <code>driver.click(target)</code></p>
+<p>js 脚本绑定的 java 后台类 cn.veasion.auto.bind.WebDriverBinding</p>
+<h2>open(url)<span><a class="mark" href="#driver_open_url" id="driver_open_url">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>url</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 网址</li>
+</ul>
+</div><p>打开页面并等待页面加载</p>
+<pre><code class="lang-js">open(&quot;http://www.baidu.com&quot;);
+</code></pre>
+<h2>pause(millis)<span><a class="mark" href="#driver_pause_millis" id="driver_pause_millis">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>millis</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 毫秒</li>
+</ul>
+</div><p>暂停多少毫秒，等价于 sleep</p>
+<pre><code class="lang-js">pause(500);
+</code></pre>
+<h2>sleep(millis)<span><a class="mark" href="#driver_sleep_millis" id="driver_sleep_millis">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>millis</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 毫秒</li>
+</ul>
+</div><p>暂停多少毫秒，等价于 pause</p>
+<pre><code class="lang-js">sleep(500);
+</code></pre>
+<h2>executeScript(jsCode)<span><a class="mark" href="#driver_executescript_jscode" id="driver_executescript_jscode">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>jsCode</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> js 脚本</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+</div><p>向浏览器驱动执行 js 代码</p>
+<pre><code class="lang-js">executeScript(&quot;alert(&#39;hello&#39;);&quot;);
+</code></pre>
+<h2>executeScriptByParams(jsCode, args)<span><a class="mark" href="#driver_executescriptbyparams_jscode_args" id="driver_executescriptbyparams_jscode_args">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>jsCode</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> js代码</li>
+<li><code>args</code> <span class="type">&lt;array?&gt;</span> 参数</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+</div><p>向浏览器驱动执行 js 代码（带参数）</p>
+<pre><code class="lang-js">executeScriptByParams(&quot;arguments[0].click()&quot;, element);
+</code></pre>
+<h2>command(command)<span><a class="mark" href="#driver_command_command" id="driver_command_command">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>command</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> json命令</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a></li>
+</ul>
+</div><p>执行 json 命令，兼容 js 调用 json 自动化脚本</p>
+<pre><code class="lang-js">command({ &quot;command&quot;: &quot;click&quot;, &quot;target&quot;: &quot;css=button&quot; });
+command(&#39;{ &quot;command&quot;: &quot;click&quot;, &quot;target&quot;: &quot;css=button&quot; }&#39;);
+</code></pre>
+<h2>info<span><a class="mark" href="#driver_info" id="driver_info">#</a></span></h2>
+<div class="signature"><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a></li>
+</ul>
+</div><p>获取当前脚本环境信息。</p>
+<h2>assertResult(flag, message)<span><a class="mark" href="#driver_assertresult_flag_message" id="driver_assertresult_flag_message">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>flag</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;boolean&gt;</a> 是否通过</li>
+<li><code>message</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 断言信息</li>
+</ul>
+</div><p>断言，当 flag 为 true 时表示断言通过，false 为断言失败抛出异常 message</p>
+<pre><code class="lang-js">assertResult(true, &#39;断言测试通过&#39;);
+// 断言元素存在
+assertResult(findOne(&#39;id=xxx&#39;) != null, &#39;断言元素存在&#39;);
+</code></pre>
+<h2>waitForPageLoaded(seconds)<span><a class="mark" href="#driver_waitforpageloaded_seconds" id="driver_waitforpageloaded_seconds">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>seconds</code> <span class="type">&lt;number?&gt;</span> 最大等待秒数</li>
+</ul>
+</div><p>等待页面加载，通常在页面重新加载或刷新时使用。</p>
+<pre><code class="lang-js">waitForPageLoaded(10);
+</code></pre>
+<h2>iframe(target, fun)<span><a class="mark" href="#driver_iframe_target_fun" id="driver_iframe_target_fun">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>target</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 元素选择器</li>
+<li><code>fun</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> 函数</li>
+</ul>
+</div><p>当前浏览器操作切换至 target 元素  iframe 框架里</p>
+<pre><code class="lang-js">iframe(&#39;id=iframe&#39;, function () {
+    println(findOne(&#39;css=body&#39;).text());
+});
+</code></pre>
+<h2>formatDate(date, pattern)<span><a class="mark" href="#driver_formatdate_date_pattern" id="driver_formatdate_date_pattern">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>date</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> 时间 (时间对象/毫秒数)</li>
+<li><code>pattern</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 格式化 format</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a></li>
+</ul>
+</div><p>格式化时间</p>
+<pre><code class="lang-js">// 时间格式化
+formatDate(new Date(), &#39;yyyy-MM-dd HH:mm:ss&#39;);
+// 毫秒数格式化
+formatDate(1607430878907, &#39;yyyy-MM-dd HH:mm:ss&#39;);
+</code></pre>
+<h2>randCode(length)<span><a class="mark" href="#driver_randcode_length" id="driver_randcode_length">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>length</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 长度</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a></li>
+</ul>
+</div><p>随机字符串（数字）</p>
+<pre><code class="lang-js">randCode(8);
+</code></pre>
+<h2>println(message, args)<span><a class="mark" href="#driver_println_message_args" id="driver_println_message_args">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>message</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> 消息</li>
+<li><code>args</code> <span class="type">&lt;array?&gt;</span> 参数</li>
+</ul>
+</div><p>打印，输出到控制台</p>
+<h2>calculate(str, n)<span><a class="mark" href="#driver_calculate_str_n" id="driver_calculate_str_n">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>str</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 运算表达式</li>
+<li><code>n</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 保留几位小数</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 返回计算结果</li>
+</ul>
+</div><p>计算器</p>
+<pre><code class="lang-js">// 计算，保留两位小数
+let result = calculate(&#39;√(3*3)+4.99+(5.99+6.99)*1.06^2&#39;, 2);
+println(&#39;计算结果：&#39; + result);
+</code></pre>
+<h2>writeText(path, context, append, charsetName)<span><a class="mark" href="#driver_writetext_path_context_append_charsetname" id="driver_writetext_path_context_append_charsetname">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 路径</li>
+<li><code>context</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 文本内容</li>
+<li><code>append</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;boolean&gt;</a> 是否追加</li>
+<li><code>charsetName</code> <span class="type">&lt;string?&gt;</span> 编码，默认UTF-8</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a></li>
+</ul>
+</div><p>写文本文件</p>
+<pre><code class="lang-js">// 写文本文件
+writeText(&#39;C:\\Users\\user\\Desktop\\test.txt&#39;, &#39;hello&#39;, false);
+// 追加文本文件
+writeText(&#39;C:\\Users\\user\\Desktop\\test.txt&#39;, &#39;veasion&#39;, true);
+</code></pre>
+<h2>readText(pathOrUrl, charsetName)<span><a class="mark" href="#driver_readtext_pathorurl_charsetname" id="driver_readtext_pathorurl_charsetname">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>pathOrUrl</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 路径或网址</li>
+<li><code>charsetName</code> <span class="type">&lt;string?&gt;</span> 编码，默认UTF-8</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a></li>
+</ul>
+</div><p>读取文本，可以读本地文本文件和网络文本</p>
+<pre><code class="lang-js">// 读取网络文本
+readText(&#39;http://www.baidu.com&#39;, &#39;utf-8&#39;);
+// 读取本地文本文件
+readText(&#39;C:\\Users\\user\\Desktop\\test.txt&#39;, &#39;utf-8&#39;);
+</code></pre>
+<h2>runNewJs(path)<span><a class="mark" href="#driver_runnewjs_path" id="driver_runnewjs_path">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 路径</li>
+</ul>
+</div><p>在一个新的环境运行 js 脚本</p>
+<pre><code class="lang-js">// 相对路径
+runNewJs(env.getSourcePath(&#39;/demo/demo.js&#39;));
+// 绝对路径
+runNewJs(&#39;D:\Veasion\projects\\automation_testing\src\main\resources\demo\demo.js&#39;);
+</code></pre>
+<h2>screenshot(path)<span><a class="mark" href="#driver_screenshot_path" id="driver_screenshot_path">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>path</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 图片存放路径</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;boolean&gt;</a></li>
+</ul>
+</div><p>浏览器截图并保存到指定位置</p>
+<pre><code class="lang-js">screenshot(&#39;C:\\Users\\user\\Desktop\\temp.png&#39;);
+</code></pre>
+<h2>getWindowHandle()<span><a class="mark" href="#driver_getwindowhandle" id="driver_getwindowhandle">#</a></span></h2>
+<div class="signature"><ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a></li>
+</ul>
+</div><p>获取当前窗口句柄</p>
+<h2>openNewWindow()<span><a class="mark" href="#driver_opennewwindow" id="driver_opennewwindow">#</a></span></h2>
+<p>打开并切换到新的窗口</p>
+<h2>withNewWindow(fun)<span><a class="mark" href="#driver_withnewwindow_fun" id="driver_withnewwindow_fun">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>fun</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function" class="type">&lt;Function&gt;</a> 方法</li>
+</ul>
+</div><p>在新的窗口中执行函数</p>
+<pre><code class="lang-js">// 新窗口执行代码
+withNewWindow(function () {
+    open(&#39;http://www.baidu.com&#39;);
+});
+</code></pre>
+<h2>switchToNextWindow(windowHandle)<span><a class="mark" href="#driver_switchtonextwindow_windowhandle" id="driver_switchtonextwindow_windowhandle">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>windowHandle</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 指定窗口句柄，为 null 则切换为下一个窗口</li>
+</ul>
+</div><p>切换窗口</p>
+<pre><code class="lang-js">// 获取当前窗口句柄
+let currentHandle = getWindowHandle();
+// 切换下一个窗口
+switchToNextWindow();
+// 切换到指定窗口
+switchToNextWindow(currentHandle);
+</code></pre>
+<h2>createJdbcConnection(jdbcUrl, user, password)<span><a class="mark" href="#driver_createjdbcconnection_jdbcurl_user_password" id="driver_createjdbcconnection_jdbcurl_user_password">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>jdbcUrl</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 数据库jdbc连接url</li>
+<li><code>user</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 数据库用户名</li>
+<li><code>password</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 数据库密码</li>
+<li><span class="type">&lt;JdbcConnectionBinding&gt;</span></li>
+</ul>
+</div><p>数据库连接，操作数据库</p>
+<pre><code class="lang-js">// 创建连接
+let db = createJdbcConnection(&#39;jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&amp;characterEncoding=utf-8&#39;, &#39;root&#39;, &#39;123456&#39;);
+// 查询列表
+db.query(&#39;select id, user_name, sex from t_user where status = ? limit ?&#39;, [1, 10]);
+// 查询单个
+db.queryOnly(&#39;select database()&#39;, null);
+// 新增
+db.insert(&#39;insert into t_user(user_name, sex) values (?, ?)&#39;, [&#39;veasion&#39;, &#39;男&#39;]);
+// 修改
+db.update(&#39;update t_user set user_name = ? where id = ?&#39;, [&#39;xxx&#39;, 1]);
+// 关闭连接
+db.close();
+</code></pre>
+<h2>createMysqlConnection(ip, port, database, user, password)<span><a class="mark" href="#driver_createmysqlconnection_ip_port_database_user_password" id="driver_createmysqlconnection_ip_port_database_user_password">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>ip</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 数据库ip地址</li>
+<li><code>port</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 数据库端口</li>
+<li><code>database</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 数据库</li>
+<li><code>user</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 数据库用户名</li>
+<li><code>password</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 数据库密码</li>
+<li><span class="type">&lt;JdbcConnectionBinding&gt;</span></li>
+</ul>
+</div><p>mysql 数据库连接，操作 mysql 数据库</p>
+<pre><code class="lang-js">// mysql 数据库连接
+createMysqlConnection(&#39;127.0.0.1&#39;, 3306, &#39;user&#39;, &#39;root&#39;, &#39;123456&#39;);
+// 等价于
+createJdbcConnection(&#39;jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&amp;characterEncoding=utf-8&#39;, &#39;root&#39;, &#39;123456&#39;);
+</code></pre>
+<h2>request(url, method, content, headers)<span><a class="mark" href="#driver_request_url_method_content_headers" id="driver_request_url_method_content_headers">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>url</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 请求url/uri</li>
+<li><code>method</code> <span class="type">&lt;string?&gt;</span> 请求方式 POST/GET 默认GET</li>
+<li><code>content</code> <span class="type">&lt;Object?&gt;</span> 请求body内容</li>
+<li><code>headers</code> <span class="type">&lt;Object?&gt;</span> 请求头</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a><ul>
+<li><code>status</code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 请求状态，正常 200</li>
+<li><code>success</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Boolean_type" class="type">&lt;boolean&gt;</a> 请求是否成功</li>
+<li><code>data</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 返回数据，response</li>
+<li><code>headers</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object&gt;</a> 返回 headers</li>
+<li><code>targetHost</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> 目标服务器ip地址</li>
+</ul>
+</li>
+</ul>
+</div><p>http 请求，请求 XHR 接口</p>
+<pre><code class="lang-js">// GET请求
+let getResp = request(&#39;http://www.baidu.com&#39;, &#39;GET&#39;);
+if (getResp.success) {
+    log.info(&#39;请求成功：&#39; + getResp.data);
+} else {
+    log.error(&quot;请求失败，status: &quot; + getResp.status);
+}
+
+// POST请求
+let postResp = request(&#39;/api/ouser-web/mobileLogin/login.do&#39;, &#39;POST&#39;, { username: &#39;superadmin&#39;, password: &#39;123456&#39;}, { &#39;Content-Type&#39;: &#39;application/json;charset=UTF-8&#39; });
+if (postResp.success) {
+    log.info(&#39;请求成功：&#39; + JSON.parse(postResp.data));
+} else {
+    log.error(&quot;请求失败，status: &quot; + postResp.status);
+}
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+  <script src="assets/sh_main.js"></script>
+  <script src="assets/sh_javascript.min.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+  <!-- __TRACKING__ -->
+</body>
+</html>

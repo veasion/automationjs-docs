@@ -1,0 +1,21 @@
+{
+  "source": "..\\docs\\_coverpage.md",
+  "desc": [
+    {
+      "type": "paragraph",
+      "text": "![logo](images/logo.png)"
+    },
+    {
+      "type": "space"
+    }
+  ],
+  "modules": [
+    {
+      "textRaw": "automation_testing",
+      "name": "automation_testing",
+      "desc": "<p><strong>JS 自动化测试</strong></p>\n<p><a href=\"https://github.com/veasion/automationjs-docs\">Github</a>\n<a href=\"https://github.com/veasion/automation_testing\">源码地址</a>\n<a href=\"#综述\">阅读文档</a></p>\n",
+      "type": "module",
+      "displayName": "automation_testing"
+    }
+  ]
+}

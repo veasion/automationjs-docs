@@ -1,0 +1,616 @@
+{
+  "source": "..\\docs\\element.md",
+  "modules": [
+    {
+      "textRaw": "WebElementBinding",
+      "name": "webelementbinding",
+      "desc": "<p>element 对象，继承 SearchContextBinding 类，提供一系列元素操作方法。</p>\n<p>该 api 函数同元素对象访问，不能直接访问，如 <code>let element = findOne(target)</code> 方式获取元素对象，然后调用函数方法 <code>element.click()</code>，等价于 <code>findOne(target).click()</code></p>\n<p>js 脚本绑定的 java 后台类 cn.veasion.auto.bind.WebElementBinding</p>\n",
+      "methods": [
+        {
+          "textRaw": "click()",
+          "type": "method",
+          "name": "click",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>元素点击</p>\n<pre><code class=\"lang-js\">let element = findOne(&#39;id=xxx&#39;);\nelement.click();\n</code></pre>\n"
+        },
+        {
+          "textRaw": "tryClick()",
+          "type": "method",
+          "name": "tryClick",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>点击这个元素区域 ( try 点击，如果失败不会抛出异常 )<br>\n该点击函数跟 click 区别是：<br>\nclick 只能点击可见并且可以点击的元素<br>\ntryClick 能点击所有元素，包含不可见元素</p>\n<pre><code class=\"lang-js\">element.tryClick();\n</code></pre>\n"
+        },
+        {
+          "textRaw": "attr(attr)",
+          "type": "method",
+          "name": "attr",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`attr` {string} 属性名称 ",
+                  "name": "attr",
+                  "type": "string",
+                  "desc": "属性名称"
+                },
+                {
+                  "textRaw": "{Object} ",
+                  "type": "Object"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "attr"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>获取元素属性</p>\n<pre><code class=\"lang-js\">element.attr(&#39;name&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "type(key)",
+          "type": "method",
+          "name": "type",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`key` {Object} 字符串/按键 ",
+                  "name": "key",
+                  "type": "Object",
+                  "desc": "字符串/按键"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "key"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>向元素发送文字/模拟按键（同 sendKeys 函数）</p>\n<pre><code class=\"lang-js\">element.type(&#39;你好&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "sendKeys(key)",
+          "type": "method",
+          "name": "sendKeys",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`key` {Object} 字符串/按键 ",
+                  "name": "key",
+                  "type": "Object",
+                  "desc": "字符串/按键"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "key"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>向元素发送文字/模拟按键（同 type 函数）</p>\n<pre><code class=\"lang-js\">element.sendKeys(&#39;你好&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "text()",
+          "type": "method",
+          "name": "text",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{string} ",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>获取元素文本</p>\n"
+        },
+        {
+          "textRaw": "scrollToCenter()",
+          "type": "method",
+          "name": "scrollToCenter",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>滚动到目标元素</p>\n"
+        },
+        {
+          "textRaw": "innerHtml()",
+          "type": "method",
+          "name": "innerHtml",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{string} ",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>获取元素 inner  html 代码</p>\n"
+        },
+        {
+          "textRaw": "outerHtml()",
+          "type": "method",
+          "name": "outerHtml",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{string} ",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>获取元素 outer  html 代码</p>\n"
+        },
+        {
+          "textRaw": "value()",
+          "type": "method",
+          "name": "value",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{string} ",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>获取值。如 input 元素的 value 属性</p>\n<pre><code class=\"lang-js\">findOne(&quot;css=input&quot;).value();\n</code></pre>\n"
+        },
+        {
+          "textRaw": "xpath()",
+          "type": "method",
+          "name": "xpath",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{string} ",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>获取元素 xpath</p>\n"
+        },
+        {
+          "textRaw": "clear()",
+          "type": "method",
+          "name": "clear",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>清空值。如清空 input 元素的 value 属性</p>\n<pre><code class=\"lang-js\">findOne(&quot;css=input&quot;).clear();\n// 等价于\nfindOne(&quot;css=input&quot;).setValue(&#39;&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "setValue(text)",
+          "type": "method",
+          "name": "setValue",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`text` {string} 字符串 ",
+                  "name": "text",
+                  "type": "string",
+                  "desc": "字符串"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "text"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>设置值。如设置 input 元素的 value 属性</p>\n<pre><code class=\"lang-js\">findOne(&quot;css=input&quot;).setValue(&#39;hello~&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "selectByLabel(value)",
+          "type": "method",
+          "name": "selectByLabel",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`value` {Object} 选中值 ",
+                  "name": "value",
+                  "type": "Object",
+                  "desc": "选中值"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "value"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>通过 label 选择下拉框</p>\n<pre><code class=\"lang-js\">// &lt;select&gt;\n//   &lt;option value=&quot;1&quot;&gt;小明&lt;/option&gt;\n//   &lt;option value=&quot;2&quot;&gt;小红&lt;/option&gt;\n//   &lt;option value=&quot;3&quot;&gt;小李&lt;/option&gt;\n// &lt;/select&gt;\n\n// 选择小红\nfindOne(&quot;css=select&quot;).selectByLabel(&#39;小红&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "selectByValue(value)",
+          "type": "method",
+          "name": "selectByValue",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`value` {Object} 选中值 ",
+                  "name": "value",
+                  "type": "Object",
+                  "desc": "选中值"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "value"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>通过 value 选择下拉框</p>\n<pre><code class=\"lang-js\">// &lt;select&gt;\n//   &lt;option value=&quot;1&quot;&gt;小明&lt;/option&gt;\n//   &lt;option value=&quot;2&quot;&gt;小红&lt;/option&gt;\n//   &lt;option value=&quot;3&quot;&gt;小李&lt;/option&gt;\n// &lt;/select&gt;\n\n// 选择小红\nfindOne(&quot;css=select&quot;).selectByValue(&#39;2&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "select(label, value)",
+          "type": "method",
+          "name": "select",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`label` {string} 选择模式，支持:  index, label, value ",
+                  "name": "label",
+                  "type": "string",
+                  "desc": "选择模式，支持:  index, label, value"
+                },
+                {
+                  "textRaw": "`value` {Object} 选中值 ",
+                  "name": "value",
+                  "type": "Object",
+                  "desc": "选中值"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>选择下拉框</p>\n<pre><code class=\"lang-js\">// &lt;select&gt;\n//   &lt;option value=&quot;1&quot;&gt;小明&lt;/option&gt;\n//   &lt;option value=&quot;2&quot;&gt;小红&lt;/option&gt;\n//   &lt;option value=&quot;3&quot;&gt;小李&lt;/option&gt;\n// &lt;/select&gt;\n\n// 选择小红\nfindOne(&quot;css=select&quot;).select(&#39;index&#39;, 1); // 根据下标\nfindOne(&quot;css=select&quot;).select(&#39;label&#39;, &#39;小红&#39;); // 根据 label\nfindOne(&quot;css=select&quot;).select(&#39;value&#39;, &#39;2&#39;); // 根据 value\n</code></pre>\n"
+        },
+        {
+          "textRaw": "parent()",
+          "type": "method",
+          "name": "parent",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>获取父元素</p>\n"
+        },
+        {
+          "textRaw": "parentByTag(tagName)",
+          "type": "method",
+          "name": "parentByTag",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`tagName` {string} 元素 tagName ",
+                  "name": "tagName",
+                  "type": "string",
+                  "desc": "元素 tagName"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "tagName"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>获取指定 tagName 的父元素（向上迭代找指定 tagName 的元素）</p>\n<pre><code class=\"lang-js\">element.parentByTag(&quot;html&quot;); // 顶层 html\n</code></pre>\n"
+        },
+        {
+          "textRaw": "childList()",
+          "type": "method",
+          "name": "childList",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding[]} ",
+                  "type": "WebElementBinding[]"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>子元素集合</p>\n<pre><code class=\"lang-js\">let childs = element.childList();\nfor (let i in childs) {\n    println(childs[i]);\n}\n</code></pre>\n"
+        },
+        {
+          "textRaw": "leftSibling()",
+          "type": "method",
+          "name": "leftSibling",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding[]} ",
+                  "type": "WebElementBinding[]"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>左边兄弟节点集合</p>\n<pre><code class=\"lang-js\">// &lt;div&gt;\n//     &lt;span&gt;小明&lt;/span&gt;\n//     &lt;span id=&quot;xiaohong&quot;&gt;小红&lt;/span&gt;\n//     &lt;span&gt;小李&lt;/span&gt;\n// &lt;/div&gt;\n\nlet element = findOne(&quot;id=xiaohong&quot;);\nelement.leftSibling(); // [&lt;span&gt;小明&lt;/span&gt;]\n</code></pre>\n"
+        },
+        {
+          "textRaw": "rightSibling()",
+          "type": "method",
+          "name": "rightSibling",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding[]} ",
+                  "type": "WebElementBinding[]"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>右边兄弟节点集合</p>\n<pre><code class=\"lang-js\">// &lt;div&gt;\n//     &lt;span&gt;小明&lt;/span&gt;\n//     &lt;span id=&quot;xiaohong&quot;&gt;小红&lt;/span&gt;\n//     &lt;span&gt;小李&lt;/span&gt;\n// &lt;/div&gt;\n\nlet element = findOne(&quot;id=xiaohong&quot;);\nelement.rightSibling(); // [&lt;span&gt;小李&lt;/span&gt;]\n</code></pre>\n"
+        },
+        {
+          "textRaw": "findText(tagName, text)",
+          "type": "method",
+          "name": "findText",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`tagName` {string} 元素 tagName，默认 * 所有 ",
+                  "name": "tagName",
+                  "type": "string",
+                  "desc": "元素 tagName，默认 * 所有"
+                },
+                {
+                  "textRaw": "`text` {string} 文本 ",
+                  "name": "text",
+                  "type": "string",
+                  "desc": "文本"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "tagName"
+                },
+                {
+                  "name": "text"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>查找元素包含某文字的节点</p>\n<pre><code class=\"lang-js\">// &lt;div&gt;\n//     &lt;span&gt;小明&lt;/span&gt;\n//     &lt;span&gt;小红&lt;/span&gt;\n//     &lt;span&gt;小李&lt;/span&gt;\n// &lt;/div&gt;\n\nlet element = findOne(&quot;css=div&quot;);\nelement.findText(&quot;span&quot;, &quot;小红&quot;); // &lt;span&gt;小红&lt;/span&gt;\nelement.findText(&quot;*&quot;, &quot;小红&quot;); // &lt;span&gt;小红&lt;/span&gt;\nelement.findText(null, &quot;小红&quot;); // &lt;span&gt;小红&lt;/span&gt;\n</code></pre>\n"
+        },
+        {
+          "textRaw": "tagName()",
+          "type": "method",
+          "name": "tagName",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{string} ",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>元素 tagName，如 div/span/input 等</p>\n"
+        },
+        {
+          "textRaw": "isDisplayed()",
+          "type": "method",
+          "name": "isDisplayed",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{boolean} ",
+                  "type": "boolean"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>元素是否可见</p>\n"
+        },
+        {
+          "textRaw": "touch()",
+          "type": "method",
+          "name": "touch",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{TouchActionsBinding} ",
+                  "type": "TouchActionsBinding"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>触摸操作，返回元素触摸对象</p>\n"
+        },
+        {
+          "textRaw": "show()",
+          "type": "method",
+          "name": "show",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": []
+            }
+          ],
+          "desc": "<p>页面上突出显示</p>\n"
+        }
+      ],
+      "type": "module",
+      "displayName": "WebElementBinding"
+    }
+  ]
+}

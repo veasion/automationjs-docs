@@ -1,0 +1,80 @@
+{
+  "source": "..\\docs\\log.md",
+  "modules": [
+    {
+      "textRaw": "LoggerBinding",
+      "name": "loggerbinding",
+      "desc": "<p>提供日志记录，可以直接通过 log 访问，如 <code>log.info(&#39;xxx&#39;)</code></p>\n",
+      "methods": [
+        {
+          "textRaw": "error(message, e)",
+          "type": "method",
+          "name": "error",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`message` {string} 消息 ",
+                  "name": "message",
+                  "type": "string",
+                  "desc": "消息"
+                },
+                {
+                  "textRaw": "`e` {Object} 异常 error 日志 ",
+                  "name": "e",
+                  "type": "Object",
+                  "desc": "异常 error 日志"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "message"
+                },
+                {
+                  "name": "e"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "textRaw": "invokeMethod(name, args)",
+          "type": "method",
+          "name": "invokeMethod",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`name` {string} 方法名 ",
+                  "name": "name",
+                  "type": "string",
+                  "desc": "方法名"
+                },
+                {
+                  "textRaw": "`args` {Object[]} 方法参数 打印 方法及参数的 info 日志 ",
+                  "name": "args",
+                  "type": "Object[]",
+                  "desc": "方法参数 打印 方法及参数的 info 日志"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "name"
+                },
+                {
+                  "name": "args"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "module",
+      "displayName": "LoggerBinding"
+    }
+  ]
+}

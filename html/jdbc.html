@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JdbcConnectionBinding | JS自动化测试 -1.0.0 文档</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/sh.css">
+  <link rel="canonical" href="https://nodejs.org/api/jdbc.html">
+</head>
+<body class="alt apidoc" id="api-section-jdbc">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="/" title="返回首页">
+          JS自动化测试
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-overview" href="overview.html">Overview - 综述</a></li>
+<li><a class="nav-qa" href="qa.html">Q&amp;A - 常见问题</a></li>
+<li><a class="nav-driver" href="driver.html">Driver - 基础函数</a></li>
+<li><a class="nav-element" href="element.html">Element - 元素对象</a></li>
+<li><a class="nav-element_ext" href="element_ext.html">ElementExt - 元素函数</a></li>
+<li><a class="nav-env" href="env.html">Environment - 环境变量</a></li>
+<li><a class="nav-jdbc active" href="jdbc.html">Jdbc - 数据库</a></li>
+<li><a class="nav-touch" href="touch.html">Touch - 鼠标操作</a></li>
+<li><a class="nav-log" href="log.html">Logger - 日志</a></li>
+<li><a class="nav-auto" href="auto.html">Auto - 模块及函数</a></li>
+<li><a class="nav-demo" href="demo.html">Demo - 示例</a></li>
+</ul>
+
+    </div>
+
+    <div id="column1" data-id="jdbc" class="interior">
+      <header>
+        <h1>JS自动化测试 -1.0.0 文档</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">索引</a> |
+            <a href="all.html">查看全部</a>
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>目录</h2>
+        <ul>
+<li><span class="stability_undefined"><a href="#jdbc_jdbcconnectionbinding">JdbcConnectionBinding</a></span><ul>
+<li><span class="stability_undefined"><a href="#jdbc_query_sql_params">query(sql, params)</a></span></li>
+<li><span class="stability_undefined"><a href="#jdbc_queryonly_sql_params">queryOnly(sql, params)</a></span></li>
+<li><span class="stability_undefined"><a href="#jdbc_update_sql_params">update(sql, params)</a></span></li>
+<li><span class="stability_undefined"><a href="#jdbc_insert_sql_params">insert(sql, params)</a></span></li>
+<li><span class="stability_undefined"><a href="#jdbc_executeddl_sql">executeDDL(sql)</a></span></li>
+<li><span class="stability_undefined"><a href="#jdbc_close">close()</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>JdbcConnectionBinding<span><a class="mark" href="#jdbc_jdbcconnectionbinding" id="jdbc_jdbcconnectionbinding">#</a></span></h1>
+<p>提供数据库操作，对象通过 WebDriverBinding 中的 <code>createJdbcConnection</code> 或 <code>createMysqlConnection</code> 方法创建。</p>
+<h2>query(sql, params)<span><a class="mark" href="#jdbc_query_sql_params" id="jdbc_query_sql_params">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>sql</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> SQL</li>
+<li><code>params</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object[]&gt;</a> 参数</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object[]&gt;</a> 返回查询结果列表</li>
+</ul>
+</div><p>列表查询</p>
+<pre><code class="lang-js">// 连接数据库
+let db = createMysqlConnection(&#39;127.0.0.1&#39;, 3306, &#39;user&#39;, &#39;root&#39;, &#39;123456&#39;);
+// db = createJdbcConnection(&#39;jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&amp;characterEncoding=utf-8&#39;, &#39;root&#39;, &#39;123456&#39;);
+
+// 查询
+let list = db.query(&#39;select id, user_name, sex from t_user where status = ? limit ?&#39;, [1, 10]);
+
+for (let i in list) {
+    println(list[i]); // { id: 1, userName: &#39;xxx&#39; }
+}
+
+db.close();
+</code></pre>
+<h2>queryOnly(sql, params)<span><a class="mark" href="#jdbc_queryonly_sql_params" id="jdbc_queryonly_sql_params">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>sql</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> SQL</li>
+<li><code>params</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object[]&gt;</a> 参数</li>
+</ul>
+</div><p>获取单个值</p>
+<pre><code class="lang-js">// 连接数据库
+let db = createMysqlConnection(&#39;127.0.0.1&#39;, 3306, &#39;user&#39;, &#39;root&#39;, &#39;123456&#39;);
+// db = createJdbcConnection(&#39;jdbc:mysql://127.0.0.1:3306/user?useUnicode=true&amp;characterEncoding=utf-8&#39;, &#39;root&#39;, &#39;123456&#39;);
+
+db.queryOnly(&#39;select database()&#39;, null); // user
+
+db.close();
+</code></pre>
+<h2>update(sql, params)<span><a class="mark" href="#jdbc_update_sql_params" id="jdbc_update_sql_params">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>sql</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> SQL</li>
+<li><code>params</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object[]&gt;</a> 参数</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 返回影响条数</li>
+</ul>
+</div><p>执行增删改</p>
+<pre><code class="lang-js">db.update(&#39;update t_user set user_name = ? where id = ?&#39;, [&#39;xxx&#39;, 1]);
+</code></pre>
+<h2>insert(sql, params)<span><a class="mark" href="#jdbc_insert_sql_params" id="jdbc_insert_sql_params">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>sql</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> SQL</li>
+<li><code>params</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" class="type">&lt;Object[]&gt;</a> 参数</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 自增ID，无则返回空</li>
+</ul>
+</div><p>执行新增，返回自增长id</p>
+<pre><code class="lang-js">db.insert(&#39;insert into t_user(user_name, sex) values (?, ?)&#39;, [&#39;veasion&#39;, &#39;男&#39;]);
+</code></pre>
+<h2>executeDDL(sql)<span><a class="mark" href="#jdbc_executeddl_sql" id="jdbc_executeddl_sql">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>sql</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type">&lt;string&gt;</a> SQL</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> 返回影响条数</li>
+</ul>
+</div><p>执行DDL</p>
+<pre><code class="lang-js">db.executeDDL(&quot;alter table t_user modify `name` varchar(255) not null comment &#39;名称&#39;;&quot;);
+</code></pre>
+<h2>close()<span><a class="mark" href="#jdbc_close" id="jdbc_close">#</a></span></h2>
+<p>关闭连接</p>
+
+      </div>
+    </div>
+  </div>
+  <script src="assets/sh_main.js"></script>
+  <script src="assets/sh_javascript.min.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+  <!-- __TRACKING__ -->
+</body>
+</html>

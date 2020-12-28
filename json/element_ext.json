@@ -1,0 +1,758 @@
+{
+  "source": "..\\docs\\element_ext.md",
+  "modules": [
+    {
+      "textRaw": "SearchContextBinding",
+      "name": "searchcontextbinding",
+      "desc": "<p>WebDriverBinding 跟 WebElementBinding 对象都继承该对象，可以直接访问该类所有函数。</p>\n<p>该类所有方法均可以直接访问，或者通过元素对象访问（元素对象访问时，target 基于元素查找）</p>\n",
+      "methods": [
+        {
+          "textRaw": "findOne(target)",
+          "type": "method",
+          "name": "findOne",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>查找一个元素</p>\n"
+        },
+        {
+          "textRaw": "find(target)",
+          "type": "method",
+          "name": "find",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{WebElementBinding[]} ",
+                  "type": "WebElementBinding[]"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>查找多个元素</p>\n"
+        },
+        {
+          "textRaw": "findList(targets)",
+          "type": "method",
+          "name": "findList",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`targets` {string[]} 元素选择器数组 ",
+                  "name": "targets",
+                  "type": "string[]",
+                  "desc": "元素选择器数组"
+                },
+                {
+                  "textRaw": "{WebElementBinding[]} ",
+                  "type": "WebElementBinding[]"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "targets"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>查找多个元素</p>\n"
+        },
+        {
+          "textRaw": "findDisplayed(target)",
+          "type": "method",
+          "name": "findDisplayed",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{WebElementBinding[]} ",
+                  "type": "WebElementBinding[]"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>查找多个可见元素</p>\n"
+        },
+        {
+          "textRaw": "findText(tagName, text, fuzzyMatches)",
+          "type": "method",
+          "name": "findText",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`tagName` {string} 元素 tagName，默认 * 所有 ",
+                  "name": "tagName",
+                  "type": "string",
+                  "desc": "元素 tagName，默认 * 所有"
+                },
+                {
+                  "textRaw": "`text` {string} 文本 ",
+                  "name": "text",
+                  "type": "string",
+                  "desc": "文本"
+                },
+                {
+                  "textRaw": "`fuzzyMatches` {boolean} 是否模糊匹配 ",
+                  "name": "fuzzyMatches",
+                  "type": "boolean",
+                  "desc": "是否模糊匹配"
+                },
+                {
+                  "textRaw": "{WebElementBinding} ",
+                  "type": "WebElementBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "tagName"
+                },
+                {
+                  "name": "text"
+                },
+                {
+                  "name": "fuzzyMatches"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>查找元素包含某文字的节点</p>\n<pre><code class=\"lang-js\">// &lt;div&gt;\n//     &lt;span&gt;小明&lt;/span&gt;\n//     &lt;span&gt;小红&lt;/span&gt;\n//     &lt;span&gt;小李&lt;/span&gt;\n// &lt;/div&gt;\n\n// 精确匹配\nfindText(&quot;span&quot;, &quot;小红&quot;, false); // &lt;span&gt;小红&lt;/span&gt;\n// 模糊匹配\nfindText(&quot;span&quot;, &quot;红&quot;, true); // &lt;span&gt;小红&lt;/span&gt;\n</code></pre>\n"
+        },
+        {
+          "textRaw": "findTextAll(tagName, text, fuzzyMatches)",
+          "type": "method",
+          "name": "findTextAll",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`tagName` {string} 元素 tagName，默认 * 所有 ",
+                  "name": "tagName",
+                  "type": "string",
+                  "desc": "元素 tagName，默认 * 所有"
+                },
+                {
+                  "textRaw": "`text` {string} 文本 ",
+                  "name": "text",
+                  "type": "string",
+                  "desc": "文本"
+                },
+                {
+                  "textRaw": "`fuzzyMatches` {boolean} 是否模糊匹配 ",
+                  "name": "fuzzyMatches",
+                  "type": "boolean",
+                  "desc": "是否模糊匹配"
+                },
+                {
+                  "textRaw": "{WebElementBinding[]} ",
+                  "type": "WebElementBinding[]"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "tagName"
+                },
+                {
+                  "name": "text"
+                },
+                {
+                  "name": "fuzzyMatches"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>查找元素包含某文字的节点</p>\n<pre><code class=\"lang-js\">// &lt;div&gt;\n//     &lt;span&gt;小明&lt;/span&gt;\n//     &lt;span&gt;小红&lt;/span&gt;\n//     &lt;span&gt;小李&lt;/span&gt;\n// &lt;/div&gt;\n\n// 精确匹配\nfindTextAll(&quot;span&quot;, &quot;小红&quot;, false); // [&lt;span&gt;小红&lt;/span&gt;]\n// 模糊匹配\nfindTextAll(&quot;span&quot;, &quot;小&quot;, true); // [&lt;span&gt;小明&lt;/span&gt;, &lt;span&gt;小红&lt;/span&gt;, &lt;span&gt;小李&lt;/span&gt;]\n</code></pre>\n"
+        },
+        {
+          "textRaw": "click(target)",
+          "type": "method",
+          "name": "click",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>点击元素</p>\n<pre><code class=\"lang-js\">click(&quot;id=xxx&quot;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "tryClick(target)",
+          "type": "method",
+          "name": "tryClick",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>点击这个元素区域 ( try 点击，如果失败不会抛出异常 )<br>\n该点击函数跟 click 区别是：<br>\nclick 只能点击可见并且可以点击的元素<br>\ntryClick 能点击所有元素，包含不可见元素</p>\n<pre><code class=\"lang-js\">tryClick(&quot;id=xxx&quot;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "attr(target, attr)",
+          "type": "method",
+          "name": "attr",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`attr` {string} 属性名称 ",
+                  "name": "attr",
+                  "type": "string",
+                  "desc": "属性名称"
+                },
+                {
+                  "textRaw": "{Object} ",
+                  "type": "Object"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "attr"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>获取元素属性</p>\n<pre><code class=\"lang-js\">attr(&#39;css=input&#39;, &quot;value&quot;); // 获取input标签的value属性\n</code></pre>\n"
+        },
+        {
+          "textRaw": "text(target)",
+          "type": "method",
+          "name": "text",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{string} ",
+                  "type": "string"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>获取元素文本</p>\n"
+        },
+        {
+          "textRaw": "type(target, key)",
+          "type": "method",
+          "name": "type",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`key` {Object} 字符串/按键 ",
+                  "name": "key",
+                  "type": "Object",
+                  "desc": "字符串/按键"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "key"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>向元素发送文字/模拟按键（同 sendKeys 函数）</p>\n<pre><code class=\"lang-js\">type(&#39;css=input&#39;, &#39;你好&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "sendKeys(target, key)",
+          "type": "method",
+          "name": "sendKeys",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`key` {Object} 字符串/按键 ",
+                  "name": "key",
+                  "type": "Object",
+                  "desc": "字符串/按键"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "key"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>向元素发送文字/模拟按键（同 type 函数）</p>\n<pre><code class=\"lang-js\">sendKeys(&#39;css=input&#39;, &#39;你好&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "mouseOver(target)",
+          "type": "method",
+          "name": "mouseOver",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>鼠标移动到目标元素</p>\n"
+        },
+        {
+          "textRaw": "scrollToCenter(target)",
+          "type": "method",
+          "name": "scrollToCenter",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>滚动到目标元素</p>\n"
+        },
+        {
+          "textRaw": "selectByLabel(target, value)",
+          "type": "method",
+          "name": "selectByLabel",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`value` {Object} 选中值 ",
+                  "name": "value",
+                  "type": "Object",
+                  "desc": "选中值"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>通过 label 选择下拉框</p>\n<pre><code class=\"lang-js\">// &lt;select&gt;\n//   &lt;option value=&quot;1&quot;&gt;小明&lt;/option&gt;\n//   &lt;option value=&quot;2&quot;&gt;小红&lt;/option&gt;\n//   &lt;option value=&quot;3&quot;&gt;小李&lt;/option&gt;\n// &lt;/select&gt;\n\n// 选择小红\nselectByLabel(&#39;css=select&#39;, &#39;小红&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "selectByValue(target, value)",
+          "type": "method",
+          "name": "selectByValue",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`value` {Object} 选中值 ",
+                  "name": "value",
+                  "type": "Object",
+                  "desc": "选中值"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>通过 value 选择下拉框</p>\n<pre><code class=\"lang-js\">// &lt;select&gt;\n//   &lt;option value=&quot;1&quot;&gt;小明&lt;/option&gt;\n//   &lt;option value=&quot;2&quot;&gt;小红&lt;/option&gt;\n//   &lt;option value=&quot;3&quot;&gt;小李&lt;/option&gt;\n// &lt;/select&gt;\n\n// 选择小红\nselectByValue(&#39;css=select&#39;, &#39;2&#39;);\n</code></pre>\n"
+        },
+        {
+          "textRaw": "select(target, label, value)",
+          "type": "method",
+          "name": "select",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`label` {string} 选择模式，支持:  index, label, value ",
+                  "name": "label",
+                  "type": "string",
+                  "desc": "选择模式，支持:  index, label, value"
+                },
+                {
+                  "textRaw": "`value` {Object} 选中值 ",
+                  "name": "value",
+                  "type": "Object",
+                  "desc": "选中值"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "label"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>选择下拉框</p>\n<pre><code class=\"lang-js\">// &lt;select&gt;\n//   &lt;option value=&quot;1&quot;&gt;小明&lt;/option&gt;\n//   &lt;option value=&quot;2&quot;&gt;小红&lt;/option&gt;\n//   &lt;option value=&quot;3&quot;&gt;小李&lt;/option&gt;\n// &lt;/select&gt;\n\n// 选择小红\nselect(&#39;css=select&#39;, &#39;index&#39;, 1); // 根据下标\nselect(&#39;css=select&#39;, &#39;label&#39;, &#39;小红&#39;); // 根据 label\nselect(&#39;css=select&#39;, &#39;value&#39;, &#39;2&#39;); // 根据 value\n</code></pre>\n"
+        },
+        {
+          "textRaw": "waitForElementDisplayed(target, seconds)",
+          "type": "method",
+          "name": "waitForElementDisplayed",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`seconds` {number?} 最大等待多少秒 ",
+                  "name": "seconds",
+                  "type": "number?",
+                  "desc": "最大等待多少秒"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "seconds"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>等待元素显示（可见）</p>\n"
+        },
+        {
+          "textRaw": "waitForElementNotDisplayed(target, seconds)",
+          "type": "method",
+          "name": "waitForElementNotDisplayed",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`seconds` {number?} 最大等待多少秒 ",
+                  "name": "seconds",
+                  "type": "number?",
+                  "desc": "最大等待多少秒"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "seconds"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>等待元素隐藏（不可见）</p>\n"
+        },
+        {
+          "textRaw": "waitForElementPresent(target, seconds)",
+          "type": "method",
+          "name": "waitForElementPresent",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`seconds` {number?} 最大等待多少秒 ",
+                  "name": "seconds",
+                  "type": "number?",
+                  "desc": "最大等待多少秒"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "seconds"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>等待元素出现</p>\n"
+        },
+        {
+          "textRaw": "waitForElementNotPresent(target, seconds)",
+          "type": "method",
+          "name": "waitForElementNotPresent",
+          "signatures": [
+            {
+              "params": [
+                {
+                  "textRaw": "`target` {string} 元素选择器 ",
+                  "name": "target",
+                  "type": "string",
+                  "desc": "元素选择器"
+                },
+                {
+                  "textRaw": "`seconds` {number?} 最大等待多少秒 ",
+                  "name": "seconds",
+                  "type": "number?",
+                  "desc": "最大等待多少秒"
+                },
+                {
+                  "textRaw": "{SearchContextBinding} ",
+                  "type": "SearchContextBinding"
+                }
+              ]
+            },
+            {
+              "params": [
+                {
+                  "name": "target"
+                },
+                {
+                  "name": "seconds"
+                }
+              ]
+            }
+          ],
+          "desc": "<p>等待元素消失</p>\n"
+        }
+      ],
+      "type": "module",
+      "displayName": "SearchContextBinding"
+    }
+  ]
+}

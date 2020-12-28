@@ -1,0 +1,27 @@
+{
+  "source": "..\\docs\\demo.md",
+  "modules": [
+    {
+      "textRaw": "Demo 示例",
+      "name": "demo_示例",
+      "modules": [
+        {
+          "textRaw": "百度搜索 “中国”，进入百度百科结果",
+          "name": "百度搜索_“中国”，进入百度百科结果",
+          "desc": "<pre><code class=\"lang-js\">// demo 演示 中国百度百科\n// @author luozhuowei\n\n// 百度 &quot;中国&quot;\nbaiduSearch(&#39;中国&#39;);\n// 获取搜索结果\nlet list = findDisplayed(&#39;css=div#content_left &gt; div&#39;);\n// 变量搜索结果\nfor (let i in list) {\n    let element = list[i].findOne(&quot;css=h3 &gt; a&quot;);\n    // 判断结果是否为百度百科\n    if (element &amp;&amp; element.text().endsWith(&quot;百度百科&quot;)) {\n        // 点击\n        element.click();\n        // 等待页面加载\n        waitForPageLoaded(10);\n        // 切换到新打开的窗口\n        switchToNextWindow();\n        break;\n    }\n}\n\nfunction baiduSearch(str) {\n    open(&quot;https://www.baidu.com&quot;);\n    sendKeys(&#39;id=kw&#39;, str);\n    click(&quot;css=input[value=&#39;百度一下&#39;]&quot;);\n    waitForPageLoaded(5);\n}\n</code></pre>\n",
+          "type": "module",
+          "displayName": "百度搜索 “中国”，进入百度百科结果"
+        },
+        {
+          "textRaw": "起点小说网搜索并下载斗破苍穹",
+          "name": "起点小说网搜索并下载斗破苍穹",
+          "desc": "<pre><code class=\"lang-js\">// demo 演示 爬小说\n// @author luozhuowei\n\nlet bookName = &#39;斗破苍穹&#39;;\n// 爬取前5章\nlet chapterCount = 5;\n// 保存到桌面\nlet savePath = env.getString(&#39;DESKTOP_DIR&#39;) + &#39;\\\\斗破苍穹.txt&#39;;\n\nlog.info(&#39;正在下载: &#39; + bookName);\nlog.info(&#39;保存路径: &#39; + savePath);\n\n// 起点小说\nopen(&#39;https://www.qidian.com&#39;);\n// 搜索\nsendKeys(&#39;id=s-box&#39;, bookName);\ntryClick(&#39;id=search-btn&#39;);\nswitchToNextWindow();\nwaitForPageLoaded();\nsleep(500);\n\n// 点击搜索结果\nfindOne(&#39;css=#result-list&#39;).findOne(&#39;linkText=&#39; + bookName).tryClick();\nswitchToNextWindow();\nwaitForPageLoaded();\n\n// 点击“免费试读”\nfindText(&#39;a&#39;, &#39;免费试读&#39;, false).tryClick();\nwaitForPageLoaded();\n\n// 关闭广告弹窗\ntryClick(&#39;css=a.lbf-panel-close&#39;);\nsleep(200);\n\nfor (let i = 0; i &lt; chapterCount; i++) {\n    // 小说主体\n    let bookBody = findOne(&#39;css=#j_chapterBox div.main-text-wrap&#39;);\n    // 移除评论\n    executeScript(&quot;document.querySelectorAll(&#39;span.review-count&#39;).forEach(item =&gt; item.remove());&quot;);\n    // 小说标题\n    let title = bookBody.findOne(&#39;css=.j_chapterName&#39;).text();\n    log.info(title);\n    // 小说内容\n    let context = bookBody.findOne(&#39;css=div.read-content.j_readContent&#39;).text().replace(/[\\n]/g, &#39;\\r\\n\\r\\n&#39;);\n    // 保存小说\n    writeText(savePath, title + &#39;\\r\\n\\r\\n&#39; + context + &#39;\\r\\n\\r\\n\\r\\n\\r\\n&#39;, true);\n    // 下一章\n    let nextPage = findOne(&#39;id=j_chapterNext&#39;);\n    if (nextPage) {\n        nextPage.tryClick();\n        waitForPageLoaded();\n        sleep(200);\n    } else {\n        break;\n    }\n}\n</code></pre>\n",
+          "type": "module",
+          "displayName": "起点小说网搜索并下载斗破苍穹"
+        }
+      ],
+      "type": "module",
+      "displayName": "Demo 示例"
+    }
+  ]
+}

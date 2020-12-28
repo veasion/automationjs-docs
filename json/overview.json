@@ -1,0 +1,28 @@
+{
+  "source": "..\\docs\\overview.md",
+  "modules": [
+    {
+      "textRaw": "综述",
+      "name": "综述",
+      "desc": "<p>JS自动化测试 automation_js 使用 <a href=\"https://developer.mozilla.org/zh-CN/docs/Web/JavaScript\">JavaScript</a> 作为脚本语言，目前使用 <a href=\"http://openjdk.java.net/projects/nashorn/\">Java 1.8 Nashorn</a> 作为脚本引擎，支持ES5与部分ES6特性。</p>\n<ul>\n<li><p>因为是基于JavaScript的，学习API之前建议先学习JavaScript的基本语法和内置对象。</p>\n</li>\n<li><p>建议通过 <a href=\"https://www.jetbrains.com/idea/\">IntelliJ IDEA</a>  开发，支持 js 代码提示</p>\n</li>\n<li><p>支持通过 jar 包方式直接运行</p>\n</li>\n<li><p>浏览器驱动建议使用 <a href=\"http://npm.taobao.org/mirrors/chromedriver/\">chromedriver</a></p>\n</li>\n</ul>\n<p>本文档的章节大致上是以模块来分的，总体上可以分成内置基础函数跟业务扩展函数，包括 元素操作，浏览器窗口操作, http 请求，数据库操作等。</p>\n<p>内置函数的部分又可以大致分为基于选择器和基于元素的操作。基于选择器的操作是传统 selenium的方式，通过选择来查找元素。</p>\n<p>例如 selenium <code>findElement(By.id(&quot;veasion&quot;))</code>, <code>findElement(By.name(&quot;veasion&quot;))</code>等，在 js 脚本中则是 <code>findOne(&quot;id=veasion&quot;)</code>, <code>findOne(&quot;name=veasion&quot;)</code>。这种方式省略了 By 这个参数，而是通过字符串表示。</p>\n<p>其他部分主要包括：</p>\n<ul>\n<li><p>WebDriverBinding: driver 驱动对象。元素操作、元素查找、窗口、iframe、数据库、http、按键、url等。</p>\n</li>\n<li><p>WebElementBinding: element 元素对象。操作元素点击、输入、文本、属性、查找等。</p>\n</li>\n<li><p>EnvironmentBinding: env 环境变量。读取和操作环境变量数据等。</p>\n</li>\n<li><p>JdbcConnectionBinding: jdbc 数据库连接。操作数据库</p>\n</li>\n<li><p>Auto: auto 模块及函数封装。</p>\n</li>\n<li><p>Demo: demo 示例。</p>\n</li>\n</ul>\n<p>除此之外，还支持业务脚本扩展，如业务基础扩展 <code>auto.getIcon()</code> 见 include/auto.js， 模块扩展见 common 目录，依赖扩展见 dependency，脚本代码示例见 script/readme.js。如何运行启动程序相关请见 Q&amp;A</p>\n",
+      "modules": [
+        {
+          "textRaw": "自动化测试示例：",
+          "name": "自动化测试示例：",
+          "desc": "<ul>\n<li>百度搜索 “中国”，打印出搜索结果</li>\n</ul>\n<pre><code class=\"lang-js\">open(&quot;https://www.baidu.com&quot;);\nsendKeys(&#39;id=kw&#39;, &#39;中国&#39;);\nclick(&quot;css=input[value=&#39;百度一下&#39;]&quot;);\nwaitForPageLoaded();\nlet list = findDisplayed(&#39;css=div#content_left &gt; div&#39;);\nfor (let i in list) {\n    println(list[i].text());\n}\n</code></pre>\n<ul>\n<li>百度搜索 “中国”，进入百度百科结果</li>\n</ul>\n<pre><code class=\"lang-js\">// 百度搜索，调用封装函数\nbaiduSearch(&#39;中国&#39;);\n// 获取搜索结果\nlet list = findDisplayed(&#39;css=div#content_left &gt; div&#39;);\n// 变量搜索结果\nfor (let i in list) {\n    let element = list[i].findOne(&quot;css=h3 &gt; a&quot;);\n    // 判断结果是否为百度百科\n    if (element &amp;&amp; element.text().endsWith(&quot;百度百科&quot;)) {\n        // 点击\n        element.click();\n        // 等待页面加载\n        waitForPageLoaded(10);\n        // 切换到新打开的窗口\n        switchToNextWindow();\n        break;\n    }\n}\n\nfunction baiduSearch(str) {\n    open(&quot;https://www.baidu.com&quot;);\n    sendKeys(&#39;id=kw&#39;, str);\n    click(&quot;css=input[value=&#39;百度一下&#39;]&quot;);\n    waitForPageLoaded(5);\n}\n</code></pre>\n<p>更多示例请见 Demo 示例</p>\n",
+          "type": "module",
+          "displayName": "自动化测试示例："
+        },
+        {
+          "textRaw": "元素 target 选择器说明：",
+          "name": "元素_target_选择器说明：",
+          "desc": "<p><code>id=</code>   根据 id 查找元素</p>\n<p><code>name=</code>   根据name查找元素</p>\n<p><code>xpath=</code>   根据xpath查找元素</p>\n<p><code>css=</code>   根据css查找元素</p>\n<p><code>tagName=</code>   根据tagName查找元素</p>\n<p><code>className=</code>   根据className查找元素</p>\n<p><code>linkText=</code>   根据linkText查找元素</p>\n<p>示例：</p>\n<pre><code class=\"lang-html\">&lt;div&gt;\n    &lt;span id=&quot;wd&quot;&gt;哈哈哈&lt;/span&gt;\n    &lt;span name=&quot;text&quot;&gt;嘿嘿&lt;/span&gt;\n    &lt;ul class=&quot;test_ul&quot;&gt;\n        &lt;li&gt;1&lt;/li&gt;\n        &lt;li&gt;2&lt;/li&gt;\n    &lt;/ul&gt;\n    &lt;a href=&quot;https://www.baidu.com&quot;&gt;百度一下&lt;/a&gt;\n&lt;/div&gt;\n</code></pre>\n<pre><code class=\"lang-js\">// 根据id查询\nprintln(findOne(&quot;id=wd&quot;).text()); // 输出：哈哈哈\n\n// 根据name查询\nprintln(findOne(&quot;name=text&quot;).text()); // 输出：嘿嘿\n\n// 根据xpath查询\nprintln(findOne(&quot;xpath=//div/span[1]&quot;).text()); // 输出：哈哈哈\n\n// 根据css查询\nprintln(findOne(&quot;css=div &gt; span[name=&#39;text&#39;]&quot;).text()); // 输出：嘿嘿\n\n// 根据tagName查询\nprintln(find(&quot;tagName=span&quot;)); // 输出：[&lt;span&gt;哈哈哈&lt;/span&gt;, &lt;span&gt;嘿嘿&lt;/span&gt;]\n\n// 根据className查询\nprintln(find(&quot;className=test_ul&quot;)); // 输出：[&lt;li&gt;1&lt;/li&gt;, &lt;li&gt;2&lt;/li&gt;]\n\n// 根据linkText查询\nprintln(findOne(&quot;linkText=百度一下&quot;).text()); // 输出：百度一下\n</code></pre>\n",
+          "type": "module",
+          "displayName": "元素 target 选择器说明："
+        }
+      ],
+      "type": "module",
+      "displayName": "综述"
+    }
+  ]
+}

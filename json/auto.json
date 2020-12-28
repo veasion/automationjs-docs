@@ -1,0 +1,59 @@
+{
+  "source": "..\\docs\\auto.md",
+  "modules": [
+    {
+      "textRaw": "模块及函数",
+      "name": "模块及函数",
+      "desc": "<p>基于 JS 自动化测试框架扩展的业务模块及函数，方便直接调用封装函数解决问题。</p>\n<p>如登录 <code>auto.randMobile()</code> 等。</p>\n<ul>\n<li>业务基础函数在 include 目录下（包含auto / jira 等对象定义）</li>\n<li>业务模块在 common 目录下（包含http/代理等模块）</li>\n<li>业务数据依赖在 dependency 目录下（可以直接依赖基础数据）</li>\n</ul>\n",
+      "modules": [
+        {
+          "textRaw": "基础函数",
+          "name": "基础函数",
+          "modules": [
+            {
+              "textRaw": "auto",
+              "name": "auto",
+              "desc": "<p>auto 对象提供常用的自动化函数，具体查看  include/auto.js</p>\n<pre><code class=\"lang-js\">// 加载 http 模块\nauto.loadCommon(&#39;http&#39;);\n\n// 依赖demo数据\nauto.dependency(&#39;demo&#39;, {name: &#39;xxx&#39;});\n\n// table 滚动到最右边\nauto.scroll(findOne(&#39;css=.el-table__body-wrapper&#39;), null, 0);\n</code></pre>\n",
+              "type": "module",
+              "displayName": "auto"
+            },
+            {
+              "textRaw": "jira",
+              "name": "jira",
+              "desc": "<p>jira 对象提供 JIRA 操作，具体函数见  include/jira.js</p>\n<pre><code class=\"lang-js\">// 登录 jira\njira.login();\n\n// 提bug\njira.createIssue(&#39;测试&#39;, &#39;程序有bug&#39;);\n</code></pre>\n",
+              "type": "module",
+              "displayName": "jira"
+            }
+          ],
+          "type": "module",
+          "displayName": "基础函数"
+        },
+        {
+          "textRaw": "业务模块",
+          "name": "业务模块",
+          "desc": "<p>调用模块需要先引用模块，如 <code>auto.loadCommon(&#39;http&#39;);</code> 建议放代码最前面。</p>\n",
+          "modules": [
+            {
+              "textRaw": "http",
+              "name": "http",
+              "desc": "<p>http 模块，主要操作HTTP请求，如GET/POST请求，具体函数见 common/http.js</p>\n<pre><code class=\"lang-js\">auto.loadCommon(&#39;http&#39;);\n\nhttp.get(&#39;http://www.baidu.com&#39;);\n\nhttp.post(&#39;/api/ouser-web/mobileLogin/login.do&#39;, { username: &#39;superadmin&#39;, password: &#39;123456&#39;});\n\nlet response = http.request(&#39;/oms-web/so/list.do&#39;, &#39;POST&#39;);\nprintln(&#39;response: &#39; + response.data);\nlet ut = http.getCookie(&#39;ut&#39;);\nprintln(&#39;ut: &#39; + ut);\n</code></pre>\n",
+              "type": "module",
+              "displayName": "http"
+            },
+            {
+              "textRaw": "proxy",
+              "name": "proxy",
+              "desc": "<p>proxy 模块，主要用于 js 对象代理，具体函数见 common/proxy.js</p>\n<pre><code class=\"lang-js\">auto.loadCommon(&#39;proxy&#39;);\n\nlet p = new ProxyAdapter({}, function (obj, name, args, apply) {\n    println(name + &#39;方法被代理了 --before&#39;);\n    let result = apply();\n    println(name + &#39;方法被代理了 --after&#39;);\n    return result;\n});\n\np.hello = function() {\n    println(&#39;hello~&#39;);\n}\n\np.hello();\n// hello方法被代理了 --before\n// hello~\n// hello方法被代理了 --after\n</code></pre>\n",
+              "type": "module",
+              "displayName": "proxy"
+            }
+          ],
+          "type": "module",
+          "displayName": "业务模块"
+        }
+      ],
+      "type": "module",
+      "displayName": "模块及函数"
+    }
+  ]
+}

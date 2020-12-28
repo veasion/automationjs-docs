@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>TouchActionsBinding | JS自动化测试 -1.0.0 文档</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/sh.css">
+  <link rel="canonical" href="https://nodejs.org/api/touch.html">
+</head>
+<body class="alt apidoc" id="api-section-touch">
+  <div id="content" class="clearfix">
+    <div id="column2" class="interior">
+      <div id="intro" class="interior">
+        <a href="/" title="返回首页">
+          JS自动化测试
+        </a>
+      </div>
+      <ul>
+<li><a class="nav-overview" href="overview.html">Overview - 综述</a></li>
+<li><a class="nav-qa" href="qa.html">Q&amp;A - 常见问题</a></li>
+<li><a class="nav-driver" href="driver.html">Driver - 基础函数</a></li>
+<li><a class="nav-element" href="element.html">Element - 元素对象</a></li>
+<li><a class="nav-element_ext" href="element_ext.html">ElementExt - 元素函数</a></li>
+<li><a class="nav-env" href="env.html">Environment - 环境变量</a></li>
+<li><a class="nav-jdbc" href="jdbc.html">Jdbc - 数据库</a></li>
+<li><a class="nav-touch active" href="touch.html">Touch - 鼠标操作</a></li>
+<li><a class="nav-log" href="log.html">Logger - 日志</a></li>
+<li><a class="nav-auto" href="auto.html">Auto - 模块及函数</a></li>
+<li><a class="nav-demo" href="demo.html">Demo - 示例</a></li>
+</ul>
+
+    </div>
+
+    <div id="column1" data-id="touch" class="interior">
+      <header>
+        <h1>JS自动化测试 -1.0.0 文档</h1>
+        <div id="gtoc">
+          <p>
+            <a href="index.html" name="toc">索引</a> |
+            <a href="all.html">查看全部</a>
+          </p>
+        </div>
+        <hr>
+      </header>
+
+      <div id="toc">
+        <h2>目录</h2>
+        <ul>
+<li><span class="stability_undefined"><a href="#touch_touchactionsbinding">TouchActionsBinding</a></span><ul>
+<li><span class="stability_undefined"><a href="#touch_click">click()</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_doubleclick">doubleClick()</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_singletap">singleTap()</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_doubletap">doubleTap()</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_longpress">longPress()</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_flick">flick()</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_flickbyelement_xoffset_yoffset_speed">flickByElement(xOffset, yOffset, speed)</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_down_x_y">down(x, y)</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_up_x_y">up(x, y)</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_move_x_y">move(x, y)</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_scroll_x_y">scroll(x, y)</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_scrollbyelement_x_y">scrollByElement(x, y)</a></span></li>
+<li><span class="stability_undefined"><a href="#touch_perform">perform()</a></span></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <div id="apicontent">
+        <h1>TouchActionsBinding<span><a class="mark" href="#touch_touchactionsbinding" id="touch_touchactionsbinding">#</a></span></h1>
+<p>该类用来操作复杂的手势，如元素滚动，元素移动等，对象通过 <code>element.touch()</code> 获取。
+目前兼容性差，建议使用 js 自行扩展。</p>
+<h2>click()<span><a class="mark" href="#touch_click" id="touch_click">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>点击</p>
+<h2>doubleClick()<span><a class="mark" href="#touch_doubleclick" id="touch_doubleclick">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>双击</p>
+<h2>singleTap()<span><a class="mark" href="#touch_singletap" id="touch_singletap">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>单次触摸点击</p>
+<h2>doubleTap()<span><a class="mark" href="#touch_doubletap" id="touch_doubletap">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>两次触摸点击</p>
+<h2>longPress()<span><a class="mark" href="#touch_longpress" id="touch_longpress">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>长按</p>
+<h2>flick()<span><a class="mark" href="#touch_flick" id="touch_flick">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>flick</p>
+<h2>flickByElement(xOffset, yOffset, speed)<span><a class="mark" href="#touch_flickbyelement_xoffset_yoffset_speed" id="touch_flickbyelement_xoffset_yoffset_speed">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>flick</p>
+<h2>down(x, y)<span><a class="mark" href="#touch_down_x_y" id="touch_down_x_y">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>x</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> x坐标</li>
+<li><code>y</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> y坐标</li>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>down</p>
+<h2>up(x, y)<span><a class="mark" href="#touch_up_x_y" id="touch_up_x_y">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>x</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> x坐标</li>
+<li><code>y</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> y坐标</li>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>up</p>
+<h2>move(x, y)<span><a class="mark" href="#touch_move_x_y" id="touch_move_x_y">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>x</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> x坐标</li>
+<li><code>y</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> y坐标</li>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>move</p>
+<h2>scroll(x, y)<span><a class="mark" href="#touch_scroll_x_y" id="touch_scroll_x_y">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>x</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> x坐标</li>
+<li><code>y</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> y坐标</li>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>滚动</p>
+<h2>scrollByElement(x, y)<span><a class="mark" href="#touch_scrollbyelement_x_y" id="touch_scrollbyelement_x_y">#</a></span></h2>
+<div class="signature"><ul>
+<li><code>x</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> x坐标</li>
+<li><code>y</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#Number_type" class="type">&lt;number&gt;</a> y坐标</li>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>滚动</p>
+<h2>perform()<span><a class="mark" href="#touch_perform" id="touch_perform">#</a></span></h2>
+<div class="signature"><ul>
+<li><span class="type">&lt;TouchActionsBinding&gt;</span></li>
+</ul>
+</div><p>执行</p>
+<pre><code class="lang-js">findOne(&quot;id=xxx&quot;).touch().click().move(124, 435).perform();
+</code></pre>
+
+      </div>
+    </div>
+  </div>
+  <script src="assets/sh_main.js"></script>
+  <script src="assets/sh_javascript.min.js"></script>
+  <script>highlight(undefined, undefined, 'pre');</script>
+  <!-- __TRACKING__ -->
+</body>
+</html>
