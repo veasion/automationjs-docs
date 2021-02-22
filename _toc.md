@@ -6,6 +6,7 @@
 * [ElementExt - 元素函数](element_ext.html)
 * [Environment - 环境变量](env.html)
 * [Jdbc - 数据库](jdbc.html)
+* [Image - 图片](image.html)
 * [Touch - 鼠标操作](touch.html)
 * [Logger - 日志](log.html)
 * [Auto - 模块及函数](auto.html)

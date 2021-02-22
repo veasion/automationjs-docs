@@ -5,6 +5,7 @@
 * [元素函数 - ElementExt](/element_ext)
 * [环境变量 - Environment](/env)
 * [数据库 - Jdbc](/jdbc)
+* [图片 - Image](/image)
 * [鼠标操作 - Touch](/touch)
 * [日志 - Logger](/log)
 * [模块及函数 - Auto](/auto)

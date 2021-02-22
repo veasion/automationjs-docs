@@ -56,15 +56,14 @@ executeScript("alert('hello');");
 executeScriptByParams("arguments[0].click()", element);
 ```
 
-## command(command)
-* `command` {Object} json命令
-* {Object}
+## input(title)
+* `title` {string} 输入提示
+* {string}
 
-执行 json 命令，兼容 js 调用 json 自动化脚本
+控制台输入
 
 ```js
-command({ "command": "click", "target": "css=button" });
-command('{ "command": "click", "target": "css=button" }');
+let name = input('请输入姓名: ');
 ```
 
 ## info

@@ -5,6 +5,7 @@
 @include element_ext
 @include env
 @include jdbc
+@include image
 @include touch
 @include log
 @include auto

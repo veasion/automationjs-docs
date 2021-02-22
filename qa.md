@@ -99,7 +99,7 @@ public static void main(String[] args) throws Exception {
     String jsPath = "script/crawler.js";
     
     // 指定js文件执行
-    JavaScriptCore.execute(driver, env, new File(getFilePath(jsPath)));
+    JavaScriptCore.execute(driver, env, new File(jsPath));
     
     // ...省略其他代码
 }
@@ -108,8 +108,15 @@ public static void main(String[] args) throws Exception {
 
 
 ## 如何以 jar 方式运行
+项目打包命令
+mvn clean install
 
-jar包路径 resources/automation.jar, 运行脚本路径 resources/automation.bat。
+运行可执行jar文件路径
+    mac:  target/automation/run.sh
+    windows:  target/automation/run.bat
 
-安装 jdk 环境，双击 `automation.bat` 即可运行。
+如需指定js运行，可以修改 run.bat / run.sh 文件 -jar automation.jar 后面新增参数
 
+指定脚本文件，如 -file script/crawler.js
+后台隐身模式运行，如 -headless
+手机H5模式运行，如 -h5

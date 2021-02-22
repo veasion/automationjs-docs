@@ -27,6 +27,8 @@ JS自动化测试 automation_js 使用 [JavaScript](https://developer.mozilla.or
 
 * JdbcConnectionBinding: jdbc 数据库连接。操作数据库
 
+* Image: 元素图片找色找图、ocr文字识别、验证码识别等。
+
 * Auto: auto 模块及函数封装。
 
 * Demo: demo 示例。

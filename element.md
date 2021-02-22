@@ -91,6 +91,11 @@ findOne("css=input").value();
 
 获取元素 xpath
 
+## saveAsImage(path)
+* `path` {string} 路径
+
+保存为图片
+
 ## clear()
 * {WebElementBinding}
 
