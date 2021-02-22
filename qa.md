@@ -108,15 +108,15 @@ public static void main(String[] args) throws Exception {
 
 
 ## 如何以 jar 方式运行
-项目打包命令
-mvn clean install
+项目打包命令<br>
+mvn clean install<br>
 
-运行可执行jar文件路径
-    mac:  target/automation/run.sh
-    windows:  target/automation/run.bat
+运行可执行jar文件路径<br>
+    mac:  target/automation/run.sh<br>
+    windows:  target/automation/run.bat<br>
 
-如需指定js运行，可以修改 run.bat / run.sh 文件 -jar automation.jar 后面新增参数
+如需指定js运行，可以修改 run.bat / run.sh 文件 -jar automation.jar 后面新增参数<br>
 
-指定脚本文件，如 -file script/crawler.js
-后台隐身模式运行，如 -headless
-手机H5模式运行，如 -h5
+指定脚本文件，如 -file script/crawler.js<br>
+后台隐身模式运行，如 -headless<br>
+手机H5模式运行，如 -h5<br>
