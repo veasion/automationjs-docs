@@ -31,6 +31,11 @@
 ```
 run script/crawler.js
 ```
+> 如运行 script 目录下所有脚本
+
+```
+run script
+```
 > 目录层级太多，也可以直接命令行执行（会自动匹配查找）
 
 ```
@@ -95,11 +100,8 @@ open('http://www.baidu.com')
 public static void main(String[] args) throws Exception {
     // ...省略其他代码
     
-    // 默认 script 下的脚本文件
-    String jsPath = "script/crawler.js";
-    
     // 指定js文件执行
-    JavaScriptCore.execute(driver, env, new File(jsPath));
+    JavaScriptCore.execute(driver, env, "script/crawler.js");
     
     // ...省略其他代码
 }
@@ -120,3 +122,20 @@ mvn clean install<br>
 指定脚本文件，如 -file script/crawler.js<br>
 后台隐身模式运行，如 -headless<br>
 手机H5模式运行，如 -h5<br>
+禁用gpu运行，如 -disable-gpu false<br>
+禁用debug交互模式运行，如 -debug false<br>
+
+运行可执行jar命令：
+
+```sh
+cd automation_testing
+mvn clean install
+cd target/automation
+java -DFile.encoding=utf-8 -Djava.library.path=opencv/dll/x64 -jar automation.jar
+
+// 运行script目录下所有脚本
+// java -DFile.encoding=utf-8 -Djava.library.path=opencv/dll/x64 -jar automation.jar -debug false -file script
+// 指定 script/crawler.js 脚本文件运行
+// java -DFile.encoding=utf-8 -Djava.library.path=opencv/dll/x64 -jar automation.jar -debug false -file script/crawler.js
+```
+

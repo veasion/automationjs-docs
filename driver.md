@@ -174,16 +174,18 @@ readText('http://www.baidu.com', 'utf-8');
 readText('C:\\Users\\user\\Desktop\\test.txt', 'utf-8');
 ```
 
-## runNewJs(path)
+## runNewScript(path)
 * `path` {string} 路径
 
-在一个新的环境运行 js 脚本
+在一个新的环境运行脚本
 
 ```js
 // 相对路径
-runNewJs(env.getSourcePath('/demo/demo.js'));
+runNewScript(env.getSourcePath('/demo/demo.js'));
 // 绝对路径
-runNewJs('D:\Veasion\projects\\automation_testing\src\main\resources\demo\demo.js');
+runNewScript('D:\Veasion\projects\\automation_testing\src\main\resources\demo\demo.js');
+// 运行文件夹下所有脚本（递归运行）
+runNewScript(env.getSourcePath('/demo'));
 ```
 ## screenshot(path)
 * `path` {string} 图片存放路径
