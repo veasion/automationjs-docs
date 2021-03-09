@@ -61,15 +61,16 @@ toChromeDriver().activateDevTools();
 
 // 请求拦截处理
 toChromeDriver().addRequestHandler(function(request) {
-	// 拦截指定请求
-	return request.getUri().indexOf('www.baidu.com') != -1;
+    // 拦截指定请求
+    return request && request.uri.indexOf('www.baidu.com') > -1;
 }, function(request) {
-	// 修改请求响应
-	let response = {};
-	response.status = 200;
-	response.content = '请求被修改了！';
-	response.headers = { 'Content-Type': 'text/html;charset=utf-8' };
-	return response;
+    // 修改请求响应
+    let response = {};
+    response.status = 200;
+    response.content = '请求被修改了！';
+    response.headers = { 'Content-Type': 'text/html;charset=utf-8' };
+    println('修改请求: ' + request.uri);
+    return response; // 如需跳过返回null
 });
 
 // 测试
@@ -82,4 +83,8 @@ open('http://www.baidu.com');
 
 根据日志获取全部请求response
 
+```js
+let responseList = toChromeDriver().getAllResponse();
+println(responseList);
+```
 
