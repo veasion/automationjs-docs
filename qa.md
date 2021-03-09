@@ -120,22 +120,55 @@ mvn clean install<br>
 如需指定js运行，可以修改 run.bat / run.sh 文件 -jar automation.jar 后面新增参数<br>
 
 指定脚本文件，如 -file script/crawler.js<br>
-后台隐身模式运行，如 -headless<br>
-手机H5模式运行，如 -h5<br>
-禁用gpu运行，如 -disable-gpu false<br>
 禁用debug交互模式运行，如 -debug false<br>
+后台隐身模式运行，如 -headless<br>
+禁用gpu运行，如 -disable-gpu false<br>
+指定ua运行，如 -userAgent xxx<br>
 
-运行可执行jar命令：
+运行可执行 jar 命令：
 
 ```sh
 cd automation_testing
 mvn clean install
 cd target/automation
-java -DFile.encoding=utf-8 -Djava.library.path=opencv/dll/x64 -jar automation.jar
+java -DFile.encoding=utf-8 -Djava.library.path=lib/dll -jar automation.jar
 
 // 运行script目录下所有脚本
-// java -DFile.encoding=utf-8 -Djava.library.path=opencv/dll/x64 -jar automation.jar -debug false -file script
+// java -DFile.encoding=utf-8 -Djava.library.path=lib/dll -jar automation.jar -debug false -file script
 // 指定 script/crawler.js 脚本文件运行
-// java -DFile.encoding=utf-8 -Djava.library.path=opencv/dll/x64 -jar automation.jar -debug false -file script/crawler.js
+// java -DFile.encoding=utf-8 -Djava.library.path=lib/dll -jar automation.jar -debug false -file script/crawler.js
+```
+
+
+
+如果需要动态代理或者动态UA，请通过 js 脚本运行：
+
+```js
+let script = env.getPath("/script/crawler.js");
+
+// 新浏览器异步运行，指定驱动参数env环境变量
+runScriptWithNewDriver({
+    "DRIVER_OPTIONS": {
+        "arguments": [
+            "no-sandbox",
+            "--disable-popup-blocking",
+            "--disable-blink-features=AutomationControlled",
+            "--ignore-certificate-errors"
+        ],
+        "experimentalOptions": {
+            "excludeSwitches": [
+                "enable-automation"
+            ]
+        },
+        "proxy": {
+            "proxyType": "MANUAL",
+            "httpProxy": "127.0.0.1:8080"
+        },
+        "capability": {}
+    }
+}, script, false);
+
+// 动态UA可以通过chrome驱动执行脚本
+toChromeDriver().setUserAgent('xxx');
 ```
 

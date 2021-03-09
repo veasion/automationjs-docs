@@ -7,7 +7,9 @@ element 对象，继承 SearchContextBinding 类，提供一系列元素操作�
 js 脚本绑定的 java 后台类 cn.veasion.auto.bind.WebElementBinding
 
 
+
 ## click()
+
 * {WebElementBinding}
 
 元素点击
@@ -17,7 +19,10 @@ let element = findOne('id=xxx');
 element.click();
 ```
 
+
+
 ## tryClick()
+
 * {WebElementBinding}
 
 点击这个元素区域 ( try 点击，如果失败不会抛出异常 )<br>
@@ -29,7 +34,10 @@ tryClick 能点击所有元素，包含不可见元素
 element.tryClick();
 ```
 
+
+
 ## attr(attr)
+
 * `attr` {string} 属性名称
 * {Object}
 
@@ -39,7 +47,10 @@ element.tryClick();
 element.attr('name');
 ```
 
+
+
 ## type(key)
+
 * `key` {Object} 字符串/按键
 * {WebElementBinding}
 
@@ -48,7 +59,10 @@ element.attr('name');
 ```js
 element.type('你好');
 ```
+
+
 ## sendKeys(key)
+
 * `key` {Object} 字符串/按键
 * {WebElementBinding}
 
@@ -57,27 +71,34 @@ element.type('你好');
 ```js
 element.sendKeys('你好');
 ```
+
+
 ## text()
+
 * {string}
 
 获取元素文本
 
-## scrollToCenter()
-* {WebElementBinding}
 
-滚动到目标元素
 
 ## innerHtml()
+
 * {string}
 
 获取元素 inner  html 代码
 
+
+
 ## outerHtml()
+
 * {string}
 
 获取元素 outer  html 代码
 
+
+
 ## value()
+
 * {string}
 
 获取值。如 input 元素的 value 属性
@@ -86,17 +107,35 @@ element.sendKeys('你好');
 findOne("css=input").value();
 ```
 
+
+
+## getRect()
+
+* {Object}
+    * `x`{number} x坐标
+    * `y` {number} y坐标
+    * `width` {number} 宽度
+    * `height` {number} 高度
+
+获取元素位置区域
+
+```js
+let rect = getRect();
+println('x坐标: %d, y坐标: %d, 宽度: %d, 高度: %d', [rect.x, rect.y, rect.width, rect.height]);
+```
+
+
+
 ## xpath()
+
 * {string}
 
 获取元素 xpath
 
-## saveAsImage(path)
-* `path` {string} 路径
 
-保存为图片
 
 ## clear()
+
 * {WebElementBinding}
 
 清空值。如清空 input 元素的 value 属性
@@ -107,7 +146,22 @@ findOne("css=input").clear();
 findOne("css=input").setValue('');
 ```
 
+
+
+## cssValue(propertyName)
+
+* `propertyName` {string} css属性
+
+获取css值
+
+```js
+findOne("css=input").cssValue('width');
+```
+
+
+
 ## setValue(text)
+
 * `text` {string} 字符串
 * {WebElementBinding}
 
@@ -117,7 +171,10 @@ findOne("css=input").setValue('');
 findOne("css=input").setValue('hello~');
 ```
 
+
+
 ## selectByLabel(value)
+
 * `value` {Object} 选中值
 * {WebElementBinding}
 
@@ -134,7 +191,10 @@ findOne("css=input").setValue('hello~');
 findOne("css=select").selectByLabel('小红');
 ```
 
+
+
 ## selectByValue(value)
+
 * `value` {Object} 选中值
 * {WebElementBinding}
 
@@ -150,7 +210,10 @@ findOne("css=select").selectByLabel('小红');
 // 选择小红
 findOne("css=select").selectByValue('2');
 ```
+
+
 ## select(label, value)
+
 * `label` {string} 选择模式，支持:  index, label, value
 * `value` {Object} 选中值
 * {WebElementBinding}
@@ -169,12 +232,18 @@ findOne("css=select").select('index', 1); // 根据下标
 findOne("css=select").select('label', '小红'); // 根据 label
 findOne("css=select").select('value', '2'); // 根据 value
 ```
+
+
 ## parent()
+
 * {WebElementBinding}
 
 获取父元素
 
+
+
 ## parentByTag(tagName)
+
 * `tagName` {string} 元素 tagName
 * {WebElementBinding}
 
@@ -184,7 +253,10 @@ findOne("css=select").select('value', '2'); // 根据 value
 element.parentByTag("html"); // 顶层 html
 ```
 
+
+
 ## childList()
+
 * {WebElementBinding[]}
 
 子元素集合
@@ -195,7 +267,10 @@ for (let i in childs) {
 	println(childs[i]);
 }
 ```
+
+
 ## leftSibling()
+
 * {WebElementBinding[]}
 
 左边兄弟节点集合
@@ -210,7 +285,10 @@ for (let i in childs) {
 let element = findOne("id=xiaohong");
 element.leftSibling(); // [<span>小明</span>]
 ```
+
+
 ## rightSibling()
+
 * {WebElementBinding[]}
 
 右边兄弟节点集合
@@ -226,7 +304,10 @@ let element = findOne("id=xiaohong");
 element.rightSibling(); // [<span>小李</span>]
 ```
 
+
+
 ## findText(tagName, text)
+
 * `tagName` {string} 元素 tagName，默认 * 所有
 * `text` {string} 文本
 * {WebElementBinding}
@@ -246,23 +327,32 @@ element.findText("*", "小红"); // <span>小红</span>
 element.findText(null, "小红"); // <span>小红</span>
 ```
 
+
+
 ## tagName()
+
 * {string}
 
 元素 tagName，如 div/span/input 等
 
+
+
 ## isDisplayed()
+
 * {boolean}
 
 元素是否可见
 
-## touch()
-* {TouchActionsBinding}
 
-触摸操作，返回元素触摸对象
+
+## saveAsImage(path)
+
+* `path` {string} 路径
+
+保存为图片
+
+
 
 ## show()
-* {WebElementBinding}
-
-页面上突出显示
+gui展示元素
 

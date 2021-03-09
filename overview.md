@@ -19,7 +19,7 @@ JS自动化测试 automation_js 使用 [JavaScript](https://developer.mozilla.or
 例如 selenium `findElement(By.id("veasion"))`, `findElement(By.name("veasion"))`等，在 js 脚本中则是 `findOne("id=veasion")`, `findOne("name=veasion")`。这种方式省略了 By 这个参数，而是通过字符串表示。
 
 其他部分主要包括：
-* WebDriverBinding: driver 驱动对象。元素操作、元素查找、窗口、iframe、数据库、http、按键、url等。
+* WebDriverBinding: driver 驱动对象。元素操作、元素查找、窗口、iframe、http、按键、url等。
 
 * WebElementBinding: element 元素对象。操作元素点击、输入、文本、属性、查找等。
 

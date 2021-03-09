@@ -1,12 +1,15 @@
 @include overview
 @include qa
+@include common
 @include driver
+@include chrome
 @include element
 @include element_ext
 @include env
 @include jdbc
 @include image
 @include touch
+@include file
 @include log
 @include auto
 @include demo

@@ -3,7 +3,12 @@
 
 提供对图片操作函数，如图片找色找图、ocr文字识别、验证码识别等，该类只能通过 image 调用。
 
+js 脚本绑定的 java 后台类 cn.veasion.auto.bind.ImageBean
+
+
+
 ## load(path)
+
 * `path` {string} 路径
 * {ImageWrapper} 图片信息对象
     * `getWidth()` {number} 获取图片宽度
@@ -11,6 +16,9 @@
     * `getRGB(x, y)` {number} 获取坐标像素RGB值
     * `saveTo(path)` 保存图片至path
     * `clone()` {ImageWrapper} 克隆
+    * `show()` gui展示图片
+    * `show(x, y)` gui展示图片，标记出坐标
+    * `show(x, y, width, height)` gui展示图片，标记处坐标跟区域
 
 加载图片
 
@@ -20,7 +28,10 @@ println('图片宽度: ' + img.getWidth());
 println('图片高度: ' + img.getHeight());
 ```
 
+
+
 ## loadByUrl(url)
+
 * `url` {string} 图片url地址
 * {ImageWrapper} 图片信息对象
 
@@ -30,7 +41,23 @@ println('图片高度: ' + img.getHeight());
 let img = image.loadByUrl('http://xxx.png');
 ```
 
+
+
+## loadByScreenshot()
+
+* {ImageWrapper} 图片信息对象
+
+浏览器截图
+
+```js
+let img = loadByScreenshot();
+img.show();
+```
+
+
+
 ## loadByElement(element)
+
 * `element` {WebElementBinding} 元素
 * {ImageWrapper} 图片信息对象
 
@@ -41,7 +68,10 @@ let element = findOne('id=xxx');
 let img = image.loadByElement(element);
 ```
 
+
+
 ## ocrByUrl(imgUrl)
+
 * `imgUrl` {string} 图片url地址
 * {OcrResult} 识别结果
     * `getContent()` {string} 获取失败内容
@@ -54,7 +84,10 @@ let result = image.ocrByUrl('http://xxx.jpg');
 println('文字识别结果: ' + result.getContent());
 ```
 
+
+
 ## captchaByUrl(imgUrl)
+
 * `imgUrl` {string} 图片url地址
 * {OcrResult} 识别结果
 
@@ -65,7 +98,10 @@ let result = image.captchaByUrl('http://xxx.jpg');
 println('验证码识别结果: ' + result.getContent());
 ```
 
+
+
 ## ocrByElement(element)
+
 * `element` {WebElementBinding} 元素
 * {OcrResult} 识别结果
 
@@ -76,7 +112,10 @@ let result = image.ocrByElement(findOne('css=.ver-code-img img'));
 println('识别结果: ' + result.getContent());
 ```
 
+
+
 ## ocrByImage(imageWrapper)
+
 * `imageWrapper` {ImageWrapper} 图片对象
 * {OcrResult} 识别结果
 
@@ -100,7 +139,10 @@ let result = image.captchaByElement(findOne('css=.ver-code-img img'));
 println('识别结果: ' + result.getContent());
 ```
 
+
+
 ## captchaByImage(imageWrapper)
+
 * `imageWrapper` {ImageWrapper} 图片对象
 * {OcrResult} 识别结果
 
@@ -111,7 +153,10 @@ let result = image.captchaByImage(image.load('C:\\Users\\user\\Desktop\\test.jpg
 println('识别结果: ' + result.getContent());
 ```
 
+
+
 ## findImage(image, template)
+
 * `image` {ImageWrapper} 主图片
 * `template` {ImageWrapper} 模板图片（被查找图片）
 * {PointWrapper} 点位置坐标
@@ -126,7 +171,10 @@ println('x坐标: ' + point.getX());
 println('y坐标: ' + point.getY());
 ```
 
+
+
 ## findImage(image, template, threshold)
+
 * `image` {ImageWrapper} 主图片
 * `template` {ImageWrapper} 模板图片（被查找图片）
 * `threshold` {number} 相似度 0~1, 强阈值。该值用于检验最终匹配结果，以及在每一轮匹配中如果相似度大于该值则直接返回匹配结果
@@ -140,7 +188,10 @@ println('x坐标: ' + point.getX());
 println('y坐标: ' + point.getY());
 ```
 
+
+
 ## findImage(image, template, threshold, region)
+
 * `image` {ImageWrapper} 主图片
 * `template` {ImageWrapper} 模板图片（被查找图片）
 * `threshold` {number} 相似度 0~1, 强阈值。该值用于检验最终匹配结果，以及在每一轮匹配中如果相似度大于该值则直接返回匹配结果
@@ -155,7 +206,10 @@ println('x坐标: ' + point.getX());
 println('y坐标: ' + point.getY());
 ```
 
+
+
 ## findColor(image, color, threshold)
+
 * `image` {ImageWrapper} 图片
 * `color` {string} 颜色代码 eg: #FFFFFF
 * `threshold` {number} 相识度 0-255，越小越匹配
@@ -169,7 +223,10 @@ println('x坐标: ' + point.getX());
 println('y坐标: ' + point.getY());
 ```
 
+
+
 ## findColor(image, color, threshold, region)
+
 * `image` {ImageWrapper} 图片
 * `color` {string} 颜色代码 eg: #FFFFFF
 * `threshold` {number} 相识度 0-255，越小越匹配
@@ -184,7 +241,10 @@ println('x坐标: ' + point.getX());
 println('y坐标: ' + point.getY());
 ```
 
+
+
 ## findMultiColors(image, firstColor, threshold, colorPoints)
+
 * `image` {ImageWrapper} 图片
 * `firstColor` {string} 第一个 颜色代码 eg: #FFFFFF
 * `threshold` {number} 相识度 0-255，越小越匹配
@@ -202,7 +262,10 @@ println('x坐标: ' + point.getX());
 println('y坐标: ' + point.getY());
 ```
 
+
+
 ## findMultiColors(image, firstColor, threshold, colorPoints, region)
+
 * `image` {ImageWrapper} 图片
 * `firstColor` {string} 第一个 颜色代码 eg: #FFFFFF
 * `threshold` {number} 相识度 0-255，越小越匹配
@@ -221,7 +284,10 @@ println('x坐标: ' + point.getX());
 println('y坐标: ' + point.getY());
 ```
 
+
+
 ## findAllColor(image, color, threshold)
+
 * `image` {ImageWrapper} 图片
 * `color` {string} 颜色代码 eg: #FFFFFF
 * `threshold` {number} 相识度 0-255，越小越匹配
@@ -238,7 +304,10 @@ for (let i = 0; i < points.length; i++) {
 }
 ```
 
+
+
 ## findAllColor(image, color, threshold, region)
+
 * `image` {ImageWrapper} 图片
 * `color` {string} 颜色代码 eg: #FFFFFF
 * `threshold` {number} 相识度 0-255，越小越匹配
